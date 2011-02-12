@@ -1,0 +1,53 @@
+Convert YAPS password file to KeePassX XML
+==========================================
+
+I wanted to migrate my YAPS password file from PalmOS 5 Treo 650 to KeepassX
+format (http://www.keepassx.org/)
+
+I developed this in Perl5 on Ubuntu 8.04.
+
+You will prolly need to prep your exported YAPS passwords first, refer to the
+NOTES section below for hints.
+
+USAGE:
+
+Assuming your YAPS exported file is yaps.txt
+
+./convert.pl yaps.txt
+
+The generated KeepassX file is: yaps.xml
+
+NOTES:
+
+1. After exporting my YAPS passwords I noticed yaps.txt had a BOM at start of file (visible in less)
+
+eg.
+<U+FEFF>#,AA.com,,megazoid@hotmail.com,corsa,,
+
+By referring to these docs: http://www.perlmonks.org/?node_id=724474
+
+I used the following to get rid of it:
+$ perl -CD -pe 'tr/\x{feff}//d'  yaps.txt > yaps-nobom.txt 
+
+Delete empty lines in vim with:
+:%s/^\n//
+
+2. A sample YAPS export file is included containing:
+===
+#,WildWestDomains,www.ejectdisc.com,ejectdiscrs,m00non4st1ck,reseller account contact email:
+support@ejectdisc.com
+,
+===
+
+3. The YAPS exported txt file has carriage return and newlines, convert this to UNIX format by installing:
+
+Package: tofrodos
+Description: Converts DOS <-> Unix text files, alias tofromdos
+ DOS text files traditionally have CR/LF (carriage return/line feed) pairs as
+ their new line delimiters while Unix text files traditionally have LFs (line
+ feeds) to terminate each line. 
+
+On Ubuntu 8.04 install thus:
+aptitude install tofrodos
+
+Then: dos2unix yaps.txt (modifies file in place)
