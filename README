@@ -1,6 +1,5 @@
 Convert YAPS password file to KeePassX XML
 ==========================================
-
 I wanted to migrate my YAPS password file from PalmOS 5 Treo 650 to KeepassX
 format (http://www.keepassx.org/)
 
@@ -11,11 +10,11 @@ NOTES section below for hints.
 
 USAGE:
 
-Assuming your YAPS exported file is yaps.txt
+Your YAPS exported file is yaps.txt in the same directory as the program.
 
-./convert.pl yaps.txt
+./convert.pl
 
-The generated KeepassX file is: yaps.xml
+The generated KeePassX XML file is: yaps.xml
 
 NOTES:
 
@@ -32,14 +31,7 @@ $ perl -CD -pe 'tr/\x{feff}//d'  yaps.txt > yaps-nobom.txt
 Delete empty lines in vim with:
 :%s/^\n//
 
-2. A sample YAPS export file is included containing:
-===
-#,WildWestDomains,www.ejectdisc.com,ejectdiscrs,m00non4st1ck,reseller account contact email:
-support@ejectdisc.com
-,
-===
-
-3. The YAPS exported txt file has carriage return and newlines, convert this to UNIX format by installing:
+2. The YAPS exported txt file has carriage return and newlines, convert this to UNIX format by installing:
 
 Package: tofrodos
 Description: Converts DOS <-> Unix text files, alias tofromdos
