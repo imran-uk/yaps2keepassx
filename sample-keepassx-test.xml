@@ -1,0 +1,13 @@
+<!DOCTYPE KEEPASSX_DATABASE>
+<database>
+ <group>
+  <title>Major title</title>
+  <entry>
+   <title>sub title</title>
+   <username>username</username>
+   <password>password</password>
+   <comment>This is a comment. On multi-
+lines.</comment>
+  </entry>
+ </group>
+</database>
