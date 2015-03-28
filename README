@@ -21,7 +21,7 @@ NOTES:
 1. After exporting my YAPS passwords I noticed yaps.txt had a BOM at start of file (visible in less)
 
 eg.
-<U+FEFF>#,AA.com,,megazoid@hotmail.com,corsa,,
+<U+FEFF>#,AA.com,,username@hotmail.com,corsa,,
 
 By referring to these docs: http://www.perlmonks.org/?node_id=724474
 
